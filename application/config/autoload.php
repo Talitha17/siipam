@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
 |
 */
-$autoload['packages'] = array('session','database','simple_login','form_validation');
+$autoload['packages'] = array('session', 'database', 'simple_login', 'form_validation');
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +58,7 @@ $autoload['packages'] = array('session','database','simple_login','form_validati
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','email','session');
+$autoload['libraries'] = array('email', 'session', 'database', 'form_validation');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file','form','html');
 */
-$autoload['helper'] = array('url','file','security','html');
+$autoload['helper'] = array('url', 'file', 'security', 'html');
 
 /*
 | -------------------------------------------------------------------

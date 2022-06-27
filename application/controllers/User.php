@@ -4,16 +4,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class User extends CI_Controller
 {
 
-    public function index()
+    public function __construct()
     {
-        $data['title'] = 'My Profile';
-        $data['users'] = $this->db->get_where('users', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
+        parent::__construct();
+        $this->load->model('Design_model');
+        $this->load->library('form_validation');
+    }
+    public function index($nama = 'Friends')
+    {
+        $data['judul'] = 'Halaman Home';
+        $data['nama'] = $nama;
+        $data['design'] = $this->Design_model->getAllDesign();
+        if ($this->input->post('keyword')) {
+            $data['design'] = $this->Design_model->cariDatadesign();
+        }
+        $this->load->view('templates/user_header', $data);
         $this->load->view('user/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/user_footer');
     }
 }
